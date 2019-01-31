@@ -1,0 +1,70 @@
+package com.spring.api.config;
+
+/* *
+ *类名：AlipayConfig
+ *功能：基础配置类
+ *详细：设置帐户有关信息及返回路径
+ *版本：3.3
+ *日期：2012-08-10
+ *说明：
+ *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
+ *该代码仅供学习和研究支付宝接口使用，只是提供一个参考。
+
+ *提示：如何获取安全校验码和合作身份者ID
+ *1.用您的签约支付宝账号登录支付宝网站(www.alipay.com)
+ *2.点击“商家服务”(https://b.alipay.com/order/myOrder.htm)
+ *3.点击“查询合作者身份(PID)”、“查询安全校验码(Key)”
+
+ *安全校验码查看时，输入支付密码后，页面呈灰色的现象，怎么办？
+ *解决方法：
+ *1、检查浏览器配置，不让浏览器做弹框屏蔽设置
+ *2、更换浏览器或电脑，重新登录查询。
+ */
+
+public class AlipayConfig {
+
+	//↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// 合作身份者ID，以2088开头由16位纯数字组成的字符串
+	public static String partner = "2088621917385574";
+	// 收款支付宝账号，以2088开头由16位纯数字组成的字符串，一般情况下收款账号就是签约账号
+	public static String seller_id = partner;
+	// 商户的私钥 ，pkcs8格式
+//	public static String private_key = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBANIn2dlMtTmCSzm3euqY32KZ1C32oN+I7LUgU5mF4/HDmU8t4dy50FXTD2uYVDelAKzo4CnZSaPjqNiBJFvHg9wnfp6MwELEnZ3smj3CtSlVIoxWAdW8Hx5fvQGrQFj6Zmjpdaq1r36jGn7zcGYacbYjLC5G39rkQ5RK9zUojClpAgMBAAECgYBNMBPkqzb423FTzp9X4TRTG9sB0s79q2X9lNT/01yIpOX/XgPSNXFexHmqdDWihnk8CQCkfkl855ZRhwVarGoyXPAtkwv+IGVC7XpboS2yF2CP1iNv9o3QaMuwl+WrXcxGGnLjPbWB0+uOElcGddrBJfKs1eyxr3oy4jqWbsK73QJBAOiFapujTUwfAKLTckQQayym6GueUrqZp/DXX1mFaGKghOA1/mDOwAg7kX0wVULO9FrU1qgLV83a7aICCM+k6EMCQQDnYEuMszuCj981PKcw6Ei77CiSWPtX5yBIE9RJr+34vO0kj121tBed+ONhf/xJJ1XcFP3U542gDQOmUK6f9JLjAkAVIpNnJDfRdHv1UOzw/OERBPbZWWHBrlfSj3EOTQ8I7/hD/QRrPj+8P9XgoDUPxon1e6UrTySjBIRXFoJAhYfLAkAYETMqmoYpKY/9OKbndnICYilCN9FFLnx0IuPlGlC1m+lK8UK9INOIEhiMzsROU7Ihp2lT2RYpPNFRXnkbmFQjAkBr1nV0MKJnLNqYx39XjxCPgQecTdUxyD00bz16OjJFp0fV6ElmjeVFjph1hglfOVZGz1bf0mwmQQpJ5o2R6zZr";
+	public static String private_key = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDRUdTUBbh1K4SVpVyhdQvqCLSi0TTkaR0RwP8lg9OBXmBDVeG47WN73NEwbJQuKa8AXUC0N9Snq1TR+N2GcFAGHj6lTK/rsvf9J/sq2MgWx4C2FUZK7gpVUIeITgXW4+ZnJA3TuPMJ3cBpS1eF02XZ9uix4hCBtx6/l3eb1ge4iMs89G8WL/2y4IlQcaxzI9GqKUPI09yKw9s0qpooMsuCezWQgNrdKlcsfZNxDT1eKCGleJWYfZ23+ccpmCpoXwbGgaI1BnT86blPQrfSUs2ItRcpXgo5d6pkMm2uoltdmw0Ls7rGqrtvdKHCjoSRBzbvGqa4w2ezhX7Xha307vSlAgMBAAECggEAD82x1+AmsRH8DKBTgg0oPR8zJCfPan9VJoX/vYFacqYBdpQBWsjxfeSKFrHb7jBPeiOQQwsEDzSsTr4PW5sXL58Q88H6dj0o5AAkwnNjh/TADv9EM1wNg6t00CGz5ymFt7vNH3MTRmdro4eAsCXpxq8RmnyK6oA83hI9gZKDOrdWNfVreKwWC0e3WDOes+ud6LPsAx0OJZQ706OD5efL1H/eVVM7ftgJ7WoHHjsSoYFV47e8keJ5LJFRpLijZGduUoZ8QoKMNIf00QqyuN1tT2oUHZ11g3NY1RTWUlrpU0nyUaCTp/SJ1ge22l179hTLEZblOM9MGBTO0WarrY3YcQKBgQD4gYa6QvStViLV7PSqAimpS6o31/AqdB5iNLQplVACYvOLwj0xTdcLGtJ2jlwe0mQj14J6csUPAkoTaK0Z5nxtq098odUFhVpzpl7qTSRKpHZHW+P5f4kc+lws56Ko+o3q5WjsmiQ5bd77hMPV2Ajny7E7qSfCfyOs+s3xIyh8cwKBgQDXocka84oFr25NXYpPqIb/YEOdRXpKrtcRh8Hl15wgByAKZARK4A+Vdj/iTfycwcgpar8/sauRcyAreTHWF8eNn2WIp1RFFueSLjE3FqlUE6tHb9pX3u6JqobQcauw0wzX4DFIqYO5iyCs9pUrH5pKq0cgKNRNsimV8E0Z77RchwKBgDJcBVJ/uRfbacnScC53q7usIr2YXAouZ+3c4lm+8WzaYqKC5WW1cYvFjrsJ1G9GkZaV2NI5qeeFvj86qkGibLrIyZ3nKcUppg/juj5fDai2tWV2oLdx+fZOYhmTg2odBF+CyAWSox6kPljYKduPIRbgN3VwrScEHtWyKcPhLRYzAoGBALPD4NBjMDHFKwO8c84tBT5plnTKs0UHtaybrP5cXYAl8IQ5FYsGeHd1+ZREx9A3jRNaNs525D2B6NPVWcLOWEKtHAxs00g17CBl+gmfDtNVAnmvuit/YwXJ8FJeMXBcwlxGP1AAYhyQ7FDF0V3+HrcZS1Z4M2YCncCucNiqiYaJAoGBAMHhGWKmm4obh9QV+iCuxMbPreYiCueEwf3Z3Gj1J9j+DGMomXnFaEmGeqpjWM/OK606jdHUE8vwuwJJ7TlahMI7dMkPLa3IpyYJxo5TpXa3aaBEX0Deu1PYIhVfk0HyWj5PD+age7UKrhGtjXgKJ73Ij+qW4WN+Ez3byg9nzeIL";
+	// 支付宝的公钥，无需修改该值
+//	public static String ali_public_key  = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDrQDUz5plWBCz5x0hyE166guVQEiIg0ydIX+g2DE+CRczIwG0fyhPWmIUtiN8qoOikJM3Msn7yENeo4IRJevEjnh3c1XTwfi5mwvJxFgOKG/NaMh8sEV2JxLJTu4xh5UhTC/S0061mPQPraDiGbrqIxCpV0FQA3OPOctqOvg/BZwIDAQAB";
+	public static String ali_public_key  = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhzRksJYD4B6tmMZQcx4OFVJpN8WczRb1L+GaKld9StN4SBVEQ4iXl8PW4OPgOkScehQ3zAJYQ2qlZJRINyBcadgHuzaZd2YyW9T45+B1zZgUrFvPn1EJzBM9DLdThNwMQZb5Vpe8E6DkTPOcH1AbLkKKUJllKNTEDMQaDKqly7tEoW6dLxClZJ5wGk05Km1/CaEXIgcwkhshTEGD9KW+X0udYNGVORr29f08+78CdsVM4phpazjXNTzOddqF+VqZT8gs1ybYNTsrPplMjfENyzWkdnNYpFpvCAqHuqaNGYdWLGEh3TXpZ5ffOr6dZlJHSx3rG/SsHJ777nUvAbmYWwIDAQAB";
+
+	//↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+	// 调试用，创建TXT日志文件夹路径
+//	public static String log_path = "D:\\logs";
+
+	// 字符编码格式 目前支持 gbk 或 utf-8
+	public static String input_charset = "utf-8";
+
+	// 签名方式 不需修改
+	public static String sign_type = "RSA";
+	// 商户appid
+	public static String APPID = "2018011701930009";
+	// 私钥 pkcs8格式的
+	public static String RSA_PRIVATE_KEY = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHOQkri62ugzqDd62AdQBTJIS5Quk/nzEe3O7TuXRS1Gm4FkUfqQFz7diPDZntomWg3fzjXSsebzTMJ+90In/VT9b/bg4OzOE05wAJWCTPOxIcLViBl+PRJttgts1OgTkE6Ax1FQzj+JdBbj8Wr7MeCcZq+y4XUtYQRZtuGiLTepLHKaADWKt6oY0tXSvCh+ImKzEvSHTaM6kcWRMrci4ihLwUi+vpfdxWwvvtUaKzIk67EoX9jwDYjSMzMt3K5cq66jpqTZr87vjJsuRgyOdHAyBPqKtYN0gNTROGIw4Ek97Sjyzc8chxLqAsq7Is2YKSixO+wv73J5oo83Ie/lQJAgMBAAECggEAHK8dnuNxklrapespVAGElnP/mB0GMF7fV64/xMRC91oWDqdGNJTE3Mg2EgLHUuu67jqIGsRjXPJuC6cEVxhQh4oDTqut4nulQVSxMKc8RYofxWbSA3a3GnoZxAcN8Guypf4zLPhm7rvwKz+QXdfWVlDZ/LVFoZ4PrDAZfPTOZtxSBQpFOJz55BTA4Rb4kMGbTQR6l9saFLgjDmRW0/sYsjMc/y1A2eEa3qtPLKjlpr8EoJ/bWIJ+5k23QwZOiS50xRYVkucCt9kI+SnVdD8CnulxyTsGeZAaemF9dc77qafIYc4jFkGJVc4oQPq7n0UsVToGpCfeyPNOD8jIt3j8AQKBgQDsI7lMwuHQmRDwktD/hMPAsiq/3cyz+1Wu6Ld1RPc0BWVTWgOCp/gLwU7QuZZynUFRxpr+xOUZ9OP1Vbo4xky/hyD3c3KmAxp//LA9qT9b3ebWFrbIn3fmDhnCWgIgr7N9vT6ct1fAeRRCDIRyaGizyPG/xOuizbgbq0xfDFizaQKBgQDX+nbiNCRPuqSNr7aPOCwzSa9HoydFmJgYoJo0TRavhmSO+WnqhwgE5ZdjTtwBwcHcFTobO8LE5pL/nYKWDlZ3vDpEkLi6n3Bkxf0neXNv5xniL+pn3EW66pUZMd5BauvTvxS+eXieLfFmSb6Cq5Ff7ELzAgVK/kvRURT+A0ynoQKBgA1/VT4f/YxQ03kMy0lvq0i+ZlclNGgtO46N2r6nPIIKtOn4wS6crz7sw7aGhSTz/CHSelWJp5a+OrFxPv2zx/tCnA3I2YrHrqIWLXS40dhMbL9b+QKqqs3JjIthXbHEmTvcr1GB4VAtG41S7dckRKfSGo9dkCJ0I8vhFLJyIDfRAoGBANG+RgfFNWJMUpPaicMqfRpNu7ApTPE0kLiR909FcfuB21RR+T8uZWZEBTIHGneGUBrIboaWEb8gYK9mqrPJNsXPARMnLI7oWcEz2XalZqrM1wEnIVA9xWYRfDxchognKuCXF7EmzDFpUp7QjPffYC20hwvx8Wvz63Nad7V7RM0hAoGBAK+wkk8IQ5nQcB9cVmMStEmz7AcQ4M+iKMPKqm2S5/0ajE/LCqXNwpCdZ+TYj0ueEWxIXk+jQ30n5rZCNAL656HOmbzIaxBbeFnOaVuRRnqEFCYkndpCtklAooxZ0fPTjsc2/+qpu4iwnMZrZjdWl2319VI6Re31oDhGoT7Nt/bK";
+	// 服务器异步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+	public static String notify_url = "http://商户网关地址/alipay.trade.wap.pay-JAVA-UTF-8/notify_url.jsp";
+	// 页面跳转同步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问 商户可以自定义同步跳转地址
+	public static String return_url = "http://商户网关地址/alipay.trade.wap.pay-JAVA-UTF-8/return_url.jsp";
+	// 请求网关地址
+	public static String URL = "https://openapi.alipay.com/gateway.do";
+	// 编码
+	public static String CHARSET = "UTF-8";
+	// 返回格式
+	public static String FORMAT = "json";
+	// 支付宝公钥
+	public static String ALIPAY_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnAfmf6jugqaW5ANFVivDT/nyECGJyHxQyE1eDTIlRVZg49qHa4G2W0PuvpUeLmItRn+SrTUQKELk/Dl/IKPJMyubXXxJzxrgi7bpulK/hLyk5KNnu7V6LHXWIGTzBUnBQLkfqNLb3vrEGHyCul4ApjmUnb5DEm2LaQGmIUKMcxyFBOFUE6FQANC6m8YKf4gqmNbiIFtcpTMs+tTvzrziy8C6gus7eiAkUaOIhfFees/nlX1P2svbSc7tPK0tHs7hBZ2RNDliQ5JuUnCPfLuONbhtXBFAAdSlJ6u89VlwvjY+VFzyXO3hq0IFuOKeSjZ/OWjW0ykqVV+Gw+rDxtlowQIDAQAB";
+
+	// 日志记录目录
+	public static String log_path = "/log";
+	// RSA2
+	public static String SIGNTYPE = "RSA2";
+}
